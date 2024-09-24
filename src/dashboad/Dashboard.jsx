@@ -118,7 +118,7 @@ function Dashboard({ className }) {
           {/* row 2 */}
           <ul className="grid grid-cols-2 h-[190px] gap-3">
             {Row2.map((item, index) => (
-              <li className="">
+              <li className="" key={index}>
                 <Card2
                   heading={item.heading}
                   content={item.content}
