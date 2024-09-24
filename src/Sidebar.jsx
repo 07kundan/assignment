@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { cn } from "./libs/utils";
 import { MdDashboard } from "react-icons/md";
 import { GrSchedule } from "react-icons/gr";
@@ -44,6 +44,7 @@ const other = [
 ];
 
 function Sidebar({ className }) {
+  const [isActive, setIsActive] = useState("");
   return (
     <div
       className={cn(
@@ -56,11 +57,24 @@ function Sidebar({ className }) {
         <span className="text-2xl font-bold">Vasitum</span>
       </h2>
       <div className="text-zinc-700">
-        <ul className="space-y-4">
+        <ul className="space-y-2">
           <span className="text-sm">Main menu</span>
           {MenuItems.map((item) => (
-            <li key={item.name}>
-              <button className="flex gap-5 items-center justify-center">
+            <li
+              className={cn(
+                isActive === item.name
+                  ? "outline outline-zinc-700"
+                  : "outline-none",
+                "px-2 py-1.5 rounded-md"
+              )}
+              key={item.name}
+            >
+              <button
+                onClick={() => {
+                  setIsActive(item.name);
+                }}
+                className={cn("flex gap-5 items-center justify-center")}
+              >
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
               </button>
@@ -68,8 +82,21 @@ function Sidebar({ className }) {
           ))}
           <h4 className="pt-4 text-sm">Others</h4>
           {other.map((item) => (
-            <li key={item.name}>
-              <button className="flex gap-5 items-center justify-center">
+            <li
+              className={cn(
+                isActive === item.name
+                  ? "outline outline-zinc-700"
+                  : "outline-none",
+                "px-2 py-1.5 rounded-md"
+              )}
+              key={item.name}
+            >
+              <button
+                onClick={() => {
+                  setIsActive(item.name);
+                }}
+                className={cn("flex gap-5 items-center justify-center")}
+              >
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
               </button>
