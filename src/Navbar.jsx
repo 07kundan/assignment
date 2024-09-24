@@ -1,24 +1,26 @@
 import React from "react";
 import { BiBell, BiDownArrow, BiMessage } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
-import { FaSearch } from "react-icons/fa";
+import { FaHamburger, FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { cn } from "./libs/utils";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Navbar({ className }) {
   return (
-    <div className={cn("flex justify-between py-4 px-3", className)}>
-      <div className="relative">
+    <div className={cn("flex justify-between py-4 px-6 md:px-3", className)}>
+      <div className="relative text-xl flex items-center gap-5 ">
+        <GiHamburgerMenu className="block md:hidden" />
         <input
           type="search"
-          className=" w-80 py-1.5 px-2 rounded-md bg-zinc-200"
+          className="hidden md:block w-80 py-1.5 px-2 rounded-md bg-zinc-200"
           placeholder="Search"
         />
-        <button>
-          <FaSearch className="absolute top-1/2 -translate-y-1/2 right-3" />
+        <button className="items-center">
+          <FaSearch className=" md:absolute top-1/2 md:-translate-y-1/2 right-7" />
         </button>
       </div>
-      <div className=" flex gap-7 text-zinc-700 text-xl items-center">
+      <div className="flex gap-5  md:gap-7 text-zinc-700 text-xl items-center">
         <BiBell />
         <BiMessage />
         <div className="flex gap-2 items-center">

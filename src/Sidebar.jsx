@@ -47,7 +47,7 @@ function Sidebar({ className }) {
   return (
     <div
       className={cn(
-        "h-screen w-[302px]  px-7 border-r-2 border-blue-600",
+        "hidden md:block h-screen  px-7 border-r-2 border-blue-600",
         className
       )}
     >
